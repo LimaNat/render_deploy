@@ -34,7 +34,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, Object>> handlerMethodArgumentNotValidException(MethodArgumentNotValidException erro) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(Map.of("mensagem", Objects.requireNonNull(erro.getFieldErrors().getFirst().getDefaultMessage())));
+                .body(Map.of("mensagem", erro.getFieldErrors().getFirst().getDefaultMessage()));
     }
 
     @ExceptionHandler(NomeJaCadastradoException.class)
